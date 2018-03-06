@@ -8,3 +8,4 @@ C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.exe
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.pdb
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fLogin.resources
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fTableManager.resources
+C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fAccountProfile.resources
