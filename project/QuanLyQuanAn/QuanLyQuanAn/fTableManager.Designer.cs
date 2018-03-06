@@ -228,6 +228,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.Name = "fTableManager";
             this.Text = "Phần mềm quản lý quán ăn";
             this.panel1.ResumeLayout(false);
