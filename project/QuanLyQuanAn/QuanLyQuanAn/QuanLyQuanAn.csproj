@@ -50,6 +50,12 @@
     <Compile Include="fAccountProfile.Designer.cs">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="fAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin.Designer.cs">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin.resx">
+      <DependentUpon>fAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

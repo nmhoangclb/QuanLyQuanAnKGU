@@ -22,6 +22,20 @@ namespace QuanLyQuanAn
             this.Close();
         }
 
+        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAccountProfile f = new fAccountProfile();
+            //this.Hide();
+            f.ShowDialog();
+            //this.Show();
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAdmin f = new fAdmin();
+            f.ShowDialog();
+        }
+
  
     }
 }
