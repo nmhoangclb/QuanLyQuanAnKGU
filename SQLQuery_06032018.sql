@@ -53,7 +53,7 @@ CREATE TABLE Bill
 	DateCheckIn DATE NOT NULL,
 	DateCheckOut DATE,
 	idTable INT NOT NULL,
-	status INT NOT NULL DEAFULT 0, -- 1: Đã thanh toán || 0: Chưa thanh toán
+	status INT NOT NULL DEFAULT 0, -- 1: Đã thanh toán || 0: Chưa thanh toán
 	
 	FOREIGN KEY (idTable) REFERENCES TableFood(id)
 )
@@ -70,3 +70,34 @@ CREATE TABLE BillInfo
 	FOREIGN KEY (idFood) REFERENCES Food(id)
 )
 GO
+--Thêm dữ liệu cho Account
+INSERT INTO Account
+(
+	UserName,
+	DisplayName,
+	[PassWord],
+	[Type]
+)
+VALUES
+(
+	
+	N'admin',
+	N'admin',
+	N'admin',
+	1
+)
+INSERT INTO Account
+(
+	UserName,
+	DisplayName,
+	[PassWord],
+	[Type]
+)
+VALUES
+(
+	
+	N'staff',
+	N'staff',
+	N'123456',
+	0
+)
