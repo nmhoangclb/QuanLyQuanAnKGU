@@ -20,6 +20,7 @@ CREATE TABLE TableFood
 )
 GO
 
+
 CREATE TABLE Account
 (
 	UserName NVARCHAR(100) PRIMARY KEY,
@@ -101,3 +102,159 @@ VALUES
 	N'123456',
 	0
 )
+GO
+--Tạo store procedures 
+
+CREATE PROC USP_GetAccountByUserName
+@userName NVARCHAR(100)
+AS
+BEGIN
+	SELECT * FROM Account WHERE UserName= @userName
+END
+GO
+
+--EXECUTE USP_GetAccountByUserName @userName = N'staff'
+
+--DROP PROC USP_GetAccountByUserName
+--thêm dữ liệu vào bảng category và food
+INSERT INTO FoodCategory
+(
+	-- id -- this column value is auto-generated
+	name
+)
+VALUES
+(
+	N'Hải sản tươi sống'
+)
+INSERT INTO FoodCategory
+(
+	-- id -- this column value is auto-generated
+	name
+)
+VALUES
+(
+	N'Thịt rừng'
+)
+--SELECT * FROM FoodCategory
+
+INSERT INTO Food
+(
+	-- id -- this column value is auto-generated
+	name,
+	idCategory,
+	price
+)
+VALUES
+(
+	N'Mực nướng muối ớt',
+	1,
+	120000
+)
+INSERT INTO Food
+(
+	-- id -- this column value is auto-generated
+	name,
+	idCategory,
+	price
+)
+VALUES
+(
+	N'Tôm hùm xào me',
+	1,
+	150000
+)
+INSERT INTO Food
+(
+	-- id -- this column value is auto-generated
+	name,
+	idCategory,
+	price
+)
+VALUES
+(
+	N'Heo rừng nướng mọi',
+	2,
+	80000
+)
+
+INSERT INTO Food
+(
+	-- id -- this column value is auto-generated
+	name,
+	idCategory,
+	price
+)
+VALUES
+(
+	N'Nai xào sa tế',
+	2,
+	100000
+)
+
+CREATE PROC USP_Login
+@userName NVARCHAR(100), @passWord NVARCHAR(100)
+AS
+BEGIN
+	SELECT * FROM Account WHERE UserName= @userName AND PassWord = @passWord
+	
+END
+GO
+INSERT INTO TableFood
+(
+	-- id -- this column value is auto-generated
+	name,
+	[status]
+)
+VALUES
+(
+	N'BÀN 1',N'Trống'
+	
+)
+INSERT INTO TableFood
+(
+	-- id -- this column value is auto-generated
+	name,
+	[status]
+)
+VALUES
+(
+	N'BÀN 2',N'Trống'
+	
+)
+INSERT INTO TableFood
+(
+	-- id -- this column value is auto-generated
+	name,
+	[status]
+)
+VALUES
+(
+	N'BÀN 4',
+	N'Trống'
+	
+)
+INSERT INTO TableFood
+(
+	-- id -- this column value is auto-generated
+	name,
+	[status]
+)
+VALUES
+(
+	N'BÀN 5',
+	N'Trống'
+	
+)
+GO
+
+create PROC USP_GetTableList
+AS
+BEGIN
+	 SELECT * FROM TableFood
+END
+
+GO 
+
+
+--execute USP_GetTableList
+--DROP DATABASE QuanLyQuanAn
