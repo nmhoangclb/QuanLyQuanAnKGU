@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyQuanAn.DAO;
+using QuanLyQuanAn.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,30 @@ namespace QuanLyQuanAn
         public fTableManager()
         {
             InitializeComponent();
+            LoadTable();
         }
+        #region methods
+        void LoadTable()
+        {
+           List<Table> tableList = TableDAO.Instance.LoadTableList();
+            foreach (Table item in tableList)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeigh};
+                btn.Text = item.Name + Environment.NewLine + item.Status;
+                if (item.Status == "Trống")
+                {
+                    btn.BackColor = Color.AliceBlue;
+                }
+                else
+                    btn.BackColor = Color.Aqua;
+                flpTable.Controls.Add(btn);
+                
+            }
 
+        }
+        #endregion
+
+        #region Events
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,6 +60,6 @@ namespace QuanLyQuanAn
             f.ShowDialog();
         }
 
- 
+#endregion
     }
 }

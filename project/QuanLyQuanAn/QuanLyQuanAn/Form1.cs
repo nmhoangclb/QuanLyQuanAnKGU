@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanAn.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,11 +20,25 @@ namespace QuanLyQuanAn
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fTableManager f = new fTableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = txtUserName.Text;
+            string passWord = txtPassWord.Text;
+            if (Login(userName, passWord))
+            {
+                fTableManager f = new fTableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
+            }
 
+        }
+        public bool Login(string userName, string passWord)
+        {
+
+            return AccountDAO.Instance.Login(userName, passWord);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

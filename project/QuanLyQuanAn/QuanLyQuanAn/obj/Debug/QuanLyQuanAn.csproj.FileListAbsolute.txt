@@ -1,7 +1,6 @@
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\bin\Debug\QuanLyQuanAn.exe.config
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\bin\Debug\QuanLyQuanAn.exe
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\bin\Debug\QuanLyQuanAn.pdb
-C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.csprojResolveAssemblyReference.cache
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.Properties.Resources.resources
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.csproj.GenerateResource.Cache
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.exe
@@ -10,3 +9,4 @@ C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fLogin.
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fTableManager.resources
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fAccountProfile.resources
 C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.fAdmin.resources
+C:\QuanLyQuanAn\project\QuanLyQuanAn\QuanLyQuanAn\obj\Debug\QuanLyQuanAn.csprojResolveAssemblyReference.cache
