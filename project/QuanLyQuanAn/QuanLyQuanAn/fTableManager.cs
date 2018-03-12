@@ -27,6 +27,8 @@ namespace QuanLyQuanAn
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeigh};
                 btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Click += btn_Click;
+                btn.Tag = item;
                 if (item.Status == "Trống")
                 {
                     btn.BackColor = Color.AliceBlue;
@@ -38,9 +40,28 @@ namespace QuanLyQuanAn
             }
 
         }
+        void ShowBill(int id)
+        {
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUnCheckBillIDByTableID(id));
+
+            foreach (BillInfo item in listBillInfo)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodID.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvBill.Items.Add(lsvItem);
+            }
+
+        }
+       
         #endregion
 
         #region Events
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableID);
+        }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

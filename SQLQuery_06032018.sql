@@ -247,6 +247,13 @@ VALUES
 )
 GO
 
+DECLARE @i INT =36
+WHILE @i < 45
+BEGIN
+	INSERT INTO TableFood(NAME,[status])VALUES(N'BÀN ' + cast(@i AS NVARCHAR(100)),N'Có người')
+	SET @i = @i +1
+END
+GO 
 create PROC USP_GetTableList
 AS
 BEGIN
@@ -258,3 +265,54 @@ GO
 
 --execute USP_GetTableList
 --DROP DATABASE QuanLyQuanAn
+--insert bill
+INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
+VALUES ( GETDATE(), NULL, 1, 0)
+INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
+VALUES ( GETDATE(), NULL, 2, 1)
+INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
+VALUES ( GETDATE(), NULL, 3, 0)
+--insert billInfo
+INSERT INTO BillInfo ( idBill,idFood,[count]) VALUES (1,1,2)
+
+INSERT INTO FoodCategory
+(
+	-- id -- this column value is auto-generated
+	name
+)
+VALUES
+(
+	N'Đồ uống'
+)
+INSERT INTO Food
+(
+	-- id -- this column value is auto-generated
+	name,
+	idCategory,
+	price
+)
+VALUES
+(
+	N'Heniken',
+	3,
+	26000
+)
+INSERT INTO BillInfo
+(
+	-- id -- this column value is auto-generated
+	idBill,
+	idFood,
+	[count]
+)
+VALUES
+(
+	3,
+	4,
+	3
+)
+
+SELECT * FROM Bill
+SELECT * FROM BillInfo
+SELECT * FROM Food
+SELECT * FROM FoodCategory
+SELECT id FROM Bill WHERE idTable = 3 AND [status] = 0
