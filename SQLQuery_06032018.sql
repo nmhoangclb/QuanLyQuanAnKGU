@@ -14,8 +14,8 @@ GO
 CREATE TABLE TableFood
 (
 	id INT IDENTITY PRIMARY KEY,
-	name NVARCHAR(100)  NOT NULL DEFAULT N'Bàn chưa đặt tên',
-	status NVARCHAR(100)  NOT NULL DEFAULT N'Trống' --Trống || Có người
+	name NVARCHAR(100)  NOT NULL DEFAULT N'Bàn chua d?t tên',
+	status NVARCHAR(100)  NOT NULL DEFAULT N'Tr?ng' --Tr?ng || Có ngu?i
 
 )
 GO
@@ -33,14 +33,14 @@ GO
 CREATE TABLE FoodCategory
 (
 	id INT IDENTITY PRIMARY KEY,
-	name NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên'
+	name NVARCHAR(100) NOT NULL DEFAULT N'Chua d?t tên'
 )
 GO
 
 CREATE TABLE Food
 (
 	id INT IDENTITY PRIMARY KEY,
-	name NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên',
+	name NVARCHAR(100) NOT NULL DEFAULT N'Chua d?t tên',
 	idCategory INT NOT NULL,
 	price FLOAT NOT NULL DEFAULT 0,
 	
@@ -54,7 +54,7 @@ CREATE TABLE Bill
 	DateCheckIn DATE NOT NULL,
 	DateCheckOut DATE,
 	idTable INT NOT NULL,
-	status INT NOT NULL DEFAULT 0, -- 1: Đã thanh toán || 0: Chưa thanh toán
+	status INT NOT NULL DEFAULT 0, -- 1: Ðã thanh toán || 0: Chua thanh toán
 	
 	FOREIGN KEY (idTable) REFERENCES TableFood(id)
 )
@@ -71,7 +71,7 @@ CREATE TABLE BillInfo
 	FOREIGN KEY (idFood) REFERENCES Food(id)
 )
 GO
---Thêm dữ liệu cho Account
+--Thêm d? li?u cho Account
 INSERT INTO Account
 (
 	UserName,
@@ -103,7 +103,7 @@ VALUES
 	0
 )
 GO
---Tạo store procedures 
+--T?o store procedures 
 
 CREATE PROC USP_GetAccountByUserName
 @userName NVARCHAR(100)
@@ -116,7 +116,7 @@ GO
 --EXECUTE USP_GetAccountByUserName @userName = N'staff'
 
 --DROP PROC USP_GetAccountByUserName
---thêm dữ liệu vào bảng category và food
+--thêm d? li?u vào b?ng category và food
 INSERT INTO FoodCategory
 (
 	-- id -- this column value is auto-generated
@@ -124,7 +124,7 @@ INSERT INTO FoodCategory
 )
 VALUES
 (
-	N'Hải sản tươi sống'
+	N'H?i s?n tuoi s?ng'
 )
 INSERT INTO FoodCategory
 (
@@ -133,7 +133,7 @@ INSERT INTO FoodCategory
 )
 VALUES
 (
-	N'Thịt rừng'
+	N'Th?t r?ng'
 )
 --SELECT * FROM FoodCategory
 
@@ -146,7 +146,7 @@ INSERT INTO Food
 )
 VALUES
 (
-	N'Mực nướng muối ớt',
+	N'M?c nu?ng mu?i ?t',
 	1,
 	120000
 )
@@ -172,7 +172,7 @@ INSERT INTO Food
 )
 VALUES
 (
-	N'Heo rừng nướng mọi',
+	N'Heo r?ng nu?ng m?i',
 	2,
 	80000
 )
@@ -186,7 +186,7 @@ INSERT INTO Food
 )
 VALUES
 (
-	N'Nai xào sa tế',
+	N'Nai xào sa t?',
 	2,
 	100000
 )
@@ -207,7 +207,7 @@ INSERT INTO TableFood
 )
 VALUES
 (
-	N'BÀN 1',N'Trống'
+	N'BÀN 1',N'Tr?ng'
 	
 )
 INSERT INTO TableFood
@@ -218,7 +218,7 @@ INSERT INTO TableFood
 )
 VALUES
 (
-	N'BÀN 2',N'Trống'
+	N'BÀN 2',N'Tr?ng'
 	
 )
 INSERT INTO TableFood
@@ -230,7 +230,7 @@ INSERT INTO TableFood
 VALUES
 (
 	N'BÀN 4',
-	N'Trống'
+	N'Tr?ng'
 	
 )
 INSERT INTO TableFood
@@ -242,7 +242,7 @@ INSERT INTO TableFood
 VALUES
 (
 	N'BÀN 5',
-	N'Trống'
+	N'Tr?ng'
 	
 )
 GO
@@ -250,7 +250,7 @@ GO
 DECLARE @i INT =36
 WHILE @i < 45
 BEGIN
-	INSERT INTO TableFood(NAME,[status])VALUES(N'BÀN ' + cast(@i AS NVARCHAR(100)),N'Có người')
+	INSERT INTO TableFood(NAME,[status])VALUES(N'BÀN ' + cast(@i AS NVARCHAR(100)),N'Có ngu?i')
 	SET @i = @i +1
 END
 GO 
@@ -267,11 +267,11 @@ GO
 --DROP DATABASE QuanLyQuanAn
 --insert bill
 INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
-VALUES ( GETDATE(), NULL, 1, 0)
+VALUES ( GETDATE(), NULL, 18, 0)
 INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
-VALUES ( GETDATE(), NULL, 2, 1)
+VALUES ( GETDATE(), NULL, 19, 1)
 INSERT INTO Bill  ( DateCheckIn,DateCheckOut,idTable,[status] )
-VALUES ( GETDATE(), NULL, 3, 0)
+VALUES ( GETDATE(), NULL, 20, 0)
 --insert billInfo
 INSERT INTO BillInfo ( idBill,idFood,[count]) VALUES (1,1,2)
 
@@ -282,7 +282,7 @@ INSERT INTO FoodCategory
 )
 VALUES
 (
-	N'Đồ uống'
+	N'Ð? u?ng'
 )
 INSERT INTO Food
 (
@@ -310,9 +310,15 @@ VALUES
 	4,
 	3
 )
+SELECT * FROM TableFood 
 
-SELECT * FROM Bill
 SELECT * FROM BillInfo
 SELECT * FROM Food
 SELECT * FROM FoodCategory
 SELECT id FROM Bill WHERE idTable = 3 AND [status] = 0
+
+EXEC USP_GetTableList 
+
+
+SELECT * FROM Bill
+SELECT DateCheckIn  FROM Bill 
